@@ -1,0 +1,31 @@
+{% extends "ServicioTecnicoApp/base.html" %}
+{% block content %}
+
+<body>
+    {% load static %}
+    <link href="{% static 'ServicioTecnicoApp/css/gestion.css' %}" rel="stylesheet">
+</body>
+
+<div class="container">
+    <div style="position: relative;" style="display: grid;">
+        {% include "carro/widget.html" %}
+    </div>
+    <div class="row">
+{% for producto in productos %}
+        <div class="col-md-3">
+        <div class="card" style="width: 100%; margin: 5px 5px;">
+            <img src="{{producto.imagen.url}}" class="card-img-top">
+            <div class="card-body" style="text-align: center;">
+                <h7 class="card-title">{{producto.nombre}}</h7>
+                <p class="card-text">&nbsp;${{producto.precio}}&nbsp;CLP</p>
+            </div>
+            
+        </div>
+        <div class="card-footer text-center">
+            <a href="{% url 'carro:agregar' producto.id %}" class="btn btn-primary">Agregar al carrito</a>
+        </div>
+    </div>
+{% endfor %}
+    </div>
+</div>
+{% endblock %}

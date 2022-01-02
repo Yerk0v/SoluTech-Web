@@ -1,0 +1,1 @@
+web: gunicorn solutech.wsgi --log-file - 

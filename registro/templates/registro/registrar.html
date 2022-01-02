@@ -1,0 +1,34 @@
+<html>
+<head>
+    {% load static %}
+	<title>Panel de registro</title>
+	<link href="{% static 'ServicioTecnicoApp/css/login.css' %}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="signup">
+				<form action="" method="POST">
+					{% csrf_token %}
+					<label for="chk" aria-hidden="true">Registrarse</label>
+					<input id = "nombre_usuario" type="text" name="txt" placeholder="Nombre de usuario" required="">
+					<input id = "correo" type="email" name="correo" placeholder="Correo electrónico" required="">
+					<input id = "password" type="password" name="contraseña" placeholder="Contraseña" required="">
+					<button>Crear cuenta</button>
+				</form>
+			</div>
+
+			<div class="login">
+				<form action="log" method="POST">
+					{% csrf_token %}
+					<label for="chk" aria-hidden="true">Iniciar sesion</label>
+					<input type="email" name="correo" placeholder="Correo electrónico" required="">
+					<input type="password" name="contraseña" placeholder="Contraseña" required="">
+					<button>Ingresar</button>
+				</form>
+			</div>
+	</div>
+</body>
+</html>
