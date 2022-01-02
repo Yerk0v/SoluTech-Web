@@ -1,1 +1,1 @@
-web: gunicorn solutech.wsgi --log-file - 
+web: gunicorn ServicioTecnico.wsgi --log-file - 
