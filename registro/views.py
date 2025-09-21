@@ -24,14 +24,11 @@ def Login(request):
             password = request.POST.get('contraseña')
             try:
                 user = FormularioRegistro.objects.get(correo=correo,password=password)
-                print(user)
-                return redirect ('Inicio')
-
-            except:
+                return redirect('Inicio')
+            except FormularioRegistro.DoesNotExist:
                 messages.error(request, 'Usuario o contraseña incorrectos')
-        return HttpResponse("<h1> ERROR </h1>")
+        return render(request, 'registro/registrar.html')
 
 def Logout(request):
     logout(request)
     return redirect('Login')
-

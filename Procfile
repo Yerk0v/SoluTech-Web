@@ -1,1 +1,0 @@
-web: gunicorn ServicioTecnico.wsgi --log-file - 

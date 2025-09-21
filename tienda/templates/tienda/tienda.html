@@ -14,7 +14,9 @@
 {% for producto in productos %}
         <div class="col-md-3">
         <div class="card" style="width: 100%; margin: 5px 5px;">
-            <img src="{{producto.imagen.url}}" class="card-img-top">
+            {% if producto.imagen %}
+            <img src="{{ producto.imagen.url }}" class="card-img-top">
+            {% endif %}
             <div class="card-body" style="text-align: center;">
                 <h7 class="card-title">{{producto.nombre}}</h7>
                 <p class="card-text">&nbsp;${{producto.precio}}&nbsp;CLP</p>
